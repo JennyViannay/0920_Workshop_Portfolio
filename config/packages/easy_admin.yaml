@@ -1,0 +1,137 @@
+easy_admin:
+    site_name: '<span style="color:  rgba(255, 159, 127, 1)">Portfolio</span>'
+    formats: 
+        date:     'd.m.Y'
+        time:     'H:i'
+        datetime: 'd.m.Y'
+
+    design:
+        menu:
+            - {entity: 'Project', icon: 'network-wired'}
+            - {entity: 'Techno', icon: 'gamepad'}
+            - {entity: 'Context', icon: 'chart-bar'}
+            - {entity: 'Image', icon: 'photo-video'}
+            - {entity: 'Contact', icon: 'user'}
+    entities:
+        Project:
+            class: App\Entity\Project
+            label: "Projets"
+            list:
+                actions:
+                    - { name: 'new', icon: 'plus', label: 'Ajouter', css_class: 'btn btn-primary' }
+                    - { name: 'show', label: false, icon: 'eye', css_class: 'btn see-btn' }
+                    - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn edit-btn' }
+                    - { name: 'delete', icon: 'trash-alt', label: false, css_class: 'btn delete-btn' }
+                fields:
+                    - { property: 'id', label: 'ID'}
+                    - { property: 'title', label: 'Titre' }
+                    - { property: 'pitch', label: 'Pitch' }
+                    - { property: 'illustration', type: 'image', base_path: '%app.path.project_images%' }
+                    - { property: 'linkGithub', label: 'Lien Github' }
+                    - { property: 'linkDemo', label: 'Site Démo' }
+                    - { property: 'createdAt', label: 'Date' }
+            form:
+                title: "Ajouter un projet"
+                fields:
+                    - { property: 'title', label: 'Titre' }
+                    - { property: 'pitch', label: 'Pitch' }
+                    - { property: 'illustration', label: 'Illustration' }
+                    - { property: 'description', label: 'Description' }
+                    - { property: 'technos', label: 'Technos' }
+                    - { property: 'context', label: 'Context de réalistation' }
+                    - { property: 'linkGithub', label: 'Lien Github' }
+                    - { property: 'linkDemo', label: 'Site Démo' }
+                    - { property: 'createdAt', label: 'Date' }
+            show:
+                title: 'Projet'
+                fields: 
+                    - { property: 'id', label: 'ID'}
+                    - { property: 'title', label: 'Titre' }
+                    - { property: 'pitch', label: 'Pitch' }
+                    - { property: 'description', label: 'Description' }
+                    - { property: 'technos', label: 'Technos' }
+                    - { property: 'context', label: 'Context de réalisation' }
+                    - { property: 'linkGithub', label: 'Lien Github' }
+                    - { property: 'linkDemo', label: 'Site Démo' }
+                    - { property: 'createdAt', label: 'Date' }
+        Image:
+            class: App\Entity\Image
+            label: "Images"
+            list:
+                actions:
+                    - { name: 'new', icon: 'plus', label: 'Ajouter', css_class: 'btn btn-primary' }
+                    - { name: 'show', label: false, icon: 'eye', css_class: 'btn see-btn' }
+                    - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn edit-btn' }
+                    - { name: 'delete', icon: 'trash-alt', label: false, css_class: 'btn delete-btn' }
+                fields:
+                    - { property: 'id', label: 'ID'}
+                    - { property: 'image', type: 'image', base_path: '%app.path.project_images%' }
+            form:
+                title: "Ajouter une image"
+                fields:
+                    - { property: 'imageFile', type: 'file' }
+
+            show:
+                title: 'Image'
+                fields: 
+                    - { property: 'id', label: 'ID'}
+                    - { property: 'image', type: 'image', base_path: '%app.path.project_images%' }
+        Techno:
+            class: App\Entity\Techno
+            label: "Technos"
+            list:
+                actions:
+                    - { name: 'new', icon: 'plus', label: 'Ajouter', css_class: 'btn btn-primary' }
+                    - { name: 'show', label: false, icon: 'eye', css_class: 'btn see-btn' }
+                    - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn edit-btn' }
+                    - { name: 'delete', icon: 'trash-alt', label: false, css_class: 'btn delete-btn' }
+                fields:
+                    - { property: 'id', label: 'ID'}
+                    - { property: 'name', label: 'Nom'}
+            form:
+                fields:
+                    - { property: 'name', label: 'Nom'}
+            show:
+                fields:
+                    - { property: 'id', label: 'ID'}
+                    - { property: 'name', label: 'Nom'}
+        Context:
+            class: App\Entity\Context
+            label: "Contexts"
+            list:
+                actions:
+                    - { name: 'new', icon: 'plus', label: 'Ajouter', css_class: 'btn btn-primary' }
+                    - { name: 'show', label: false, icon: 'eye', css_class: 'btn see-btn' }
+                    - { name: 'edit', icon: 'pencil', label: false, css_class: 'btn edit-btn' }
+                    - { name: 'delete', icon: 'trash-alt', label: false, css_class: 'btn delete-btn' }
+                fields:
+                    - { property: 'id', label: 'ID'}
+                    - { property: 'type', label: 'Type'}
+            form:
+                fields:
+                    - { property: 'type', label: 'Type'}
+            show:
+                fields:
+                    - { property: 'id', label: 'ID'}
+                    - { property: 'type', label: 'Type'}
+        Contact:
+            class: App\Entity\Contact
+            label: "Contact"
+            list:
+                actions:
+                    - { name: 'show', label: false, icon: 'eye', css_class: 'btn see-btn' }
+                    - { name: 'delete', icon: 'trash-alt', label: false, css_class: 'btn delete-btn' }
+                fields:
+                    - { property: 'id', label: 'ID'}
+                    - { property: 'lastname', label: 'Nom'}
+                    - { property: 'firstname', label: 'Prénom'}
+                    - { property: 'email', label: 'Email'}
+                    - { property: 'subject', label: 'Sujet'}
+            show:
+                fields:
+                    - { property: 'id', label: 'ID'}
+                    - { property: 'lastname', label: 'Nom'}
+                    - { property: 'firstname', label: 'Prénom'}
+                    - { property: 'email', label: 'Email'}
+                    - { property: 'subject', label: 'Sujet'}
+                    - { property: 'message', label: 'Message'}
